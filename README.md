@@ -19,4 +19,5 @@ Ferramenta de Prototipagem: Figma
 
 
 # Evidências:
-As evidências relacionadas à ação, incluindo registro fotográfico e documentos de entrega parcial e final, podem ser encontradas na pasta "evidencias" deste repositório.
+As evidências relacionadas à ação, incluindo registro fotográfico e documentos de entrega parcial podem ser encontradas no link abaixo.
+https://github.com/akabral/how5/blob/main/Trabalho/HOW%20V%20-%20Etapa%201.docx
