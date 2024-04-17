@@ -9,10 +9,12 @@ mv /composer/composer.phar /usr/local/bin/composer
 
 #sudo mv composer.phar /usr/local/bin/composer
 
-chmod -R 2777 /var/www/html/example-app/storage
+
+chmod -R 2777 /var/www/html/
 
 sed -i "s/Listen 80/Listen ${PORT:-80}/g" /etc/apache2/ports.conf
 sed -i "s/:80/:${PORT:-80}/g" /etc/apache2/sites-enabled/*
-chown -R www-data:www-data /var/www/html/
-chown -R www-data:www-data /var/www/html/
+chown -R www-data:www-data /var/www/html/how5/storage/
+#chown -R www-data:www-data /var/www/html/
+#chown -R www-data:www-data /var/www/html/
 apache2-foreground

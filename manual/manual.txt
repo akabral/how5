@@ -1,0 +1,30 @@
+
+https://jetstream.laravel.com/installation.html
+https://laravel.com/docs/11.x/authentication#introduction
+
+https://laravel.com/docs/11.x/migrations#generating-migrations
+https://laraveldaily.com/post/add-first-admin-user-live-laravel\
+https://laravel.com/docs/11.x/controllers#soft-deleted-models
+https://laravel.com/docs/11.x/migrations#introduction
+https://laraveldaily.com/post/add-first-admin-user-live-laravel
+
+https://kinsta.com/blog/laravel-crud/
+https://kinsta.com/blog/laravel-crud/
+
+https://www.digitalocean.com/community/tutorials/simple-laravel-crud-with-resource-controllers
+
+
+
+php artisan migrate
+
+php artisan tinker
+use App\Models\User;
+User::create(['name' => 'Admin', 'email' => 'admin@example.org', 'password' => bcrypt('secret')]);
+
+
+
+
+php artisan make:seed UserSeeder
+php artisan db:seed --class=UserSeeder
+
+ php artisan db:seed
