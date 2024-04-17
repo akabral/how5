@@ -28,3 +28,9 @@ php artisan make:seed UserSeeder
 php artisan db:seed --class=UserSeeder
 
  php artisan db:seed
+
+ docker exec -it mysql_dev bash
+
+
+ chmod -R 2777 /var/www/html/
+ docker exec -it web_apache bash
