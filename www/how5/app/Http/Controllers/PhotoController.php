@@ -54,6 +54,7 @@ class PhotoController extends Controller
         return redirect()->route('photos.index')
         ->with('success', 'Photo updated successfully.');
     }
+    
     /**
      * Remove the specified resource from storage.
      *
