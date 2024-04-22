@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('qtd', 9, 3);
             $table->decimal('valor', 9, 3);
             $table->longText('obs');
+            $table->string('situacao');
 
             $table->date('datapag');
             $table->date('datavenc');

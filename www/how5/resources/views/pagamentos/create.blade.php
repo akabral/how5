@@ -48,7 +48,20 @@
                                 <label for="obs">obs</label>
                                 <textarea type="text"class="form-control" id="obs" name="obs" rows="3" required></textarea>
                                 </div>
-//        'situacao',
+                                
+                                <div>
+                                <x-input-label for="situacao" :value="__('Situacao')" />
+                                <select 
+                                    class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm" 
+                                    name="situacao" id="situacao">
+                                    @foreach ($pagamento->getSituacoes() as $situacao)
+                                        <option value="{{ $situacao }}" @selected(old('situacao') == $situacao)>
+                                            {{ $situacao }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                </div>
+
                                 <br>
                                 <button type="submit" class="btn btn-primary">Create pagamento</button>
                             </form>

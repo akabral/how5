@@ -30,7 +30,8 @@ class PagamentoController extends Controller
      */
     public function create()
     {
-        return view('pagamentos.create');
+        $pagamento = new Pagamento;
+        return view('pagamentos.create', compact('pagamento'));
     }
 
 
@@ -53,6 +54,7 @@ class PagamentoController extends Controller
         $pagamento->qtd =   $request->qtd;
         $pagamento->obs =   $request->obs;
         $pagamento->valor =   $request->valor;
+        $pagamento->situacao =   $request->situacao;
         $pagamento->datapag =  \Carbon\Carbon::createFromFormat('d/m/Y', $request->datapag)->format('Y-m-d h:i:s');
         $pagamento->datavenc= \Carbon\Carbon::createFromFormat('d/m/Y', $request->datavenc)->format('Y-m-d h:i:s');
         $pagamento->save();
@@ -84,12 +86,28 @@ class PagamentoController extends Controller
      */
     public function update(Request $request, $id)
     {
+       /*
+       $params = $request->all();
+        $params->datavenc= \Carbon\Carbon::createFromFormat('d/m/Y', $request->datavenc)->format('Y-m-d h:i:s');
+        $params->datapag =  \Carbon\Carbon::createFromFormat('d/m/Y', $request->datapag)->format('Y-m-d h:i:s');
+ 
+        
         $request->validate([
         'title' => 'required|max:255',
         'body' => 'required',
         ]);
+        */
         $pagamento = Pagamento::find($id);
-        $pagamento->update($request->all());
+        $pagamento->itemdesc =   $request->itemdesc;
+        $pagamento->qtd =   $request->qtd;
+        $pagamento->obs =   $request->obs;
+        $pagamento->valor =   $request->valor;
+        $pagamento->situacao =   $request->situacao;
+        $pagamento->datapag =  \Carbon\Carbon::createFromFormat('d/m/Y', $request->datapag)->format('Y-m-d h:i:s');
+        $pagamento->datavenc= \Carbon\Carbon::createFromFormat('d/m/Y', $request->datavenc)->format('Y-m-d h:i:s');
+
+        $pagamento->save();
+        //$pagamento->update($params);
         return redirect()->route('pagamentos.index')
         ->with('success', 'Pagamento updated successfully.');
     }

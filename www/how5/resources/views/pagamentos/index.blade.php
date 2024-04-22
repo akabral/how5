@@ -41,11 +41,15 @@
             </div>
 
             <div class="card-body">
-              <p class="card-text">{{ $pagamento->datapag }}</p>
+              <p class="card-text">{{ $pagamento->showDatePag() }}</p>
             </div>
 
             <div class="card-body">
-              <p class="card-text">{{ $pagamento->datavenc }}</p>
+              <p class="card-text">{{ $pagamento->showDateVenc() }}</p>
+            </div>
+
+            <div class="card-body">
+              <p class="card-text">{{ $pagamento->situacao }}</p>
             </div>
 
 

@@ -22,7 +22,7 @@
                         @method('PUT')
 
                         <div>
-                            <x-input-label for="itemdesc" :value="__('Title')" />
+                            <x-input-label for="itemdesc" :value="__('Itemdesc')" />
                             <x-text-input id="itemdesc" name="itemdesc" type="text" 
                             class="mt-1 block w-full" :value="old('itemdesc', $pagamento->itemdesc)" required autofocus autocomplete="title" />
                             <x-input-error class="mt-2" :messages="$errors->get('itemdesc')" />
@@ -30,7 +30,7 @@
 
 
                         <div>
-                            <x-input-label for="qtd" :value="__('Title')" />
+                            <x-input-label for="qtd" :value="__('Qtd')" />
                             <x-text-input id="qtd" name="qtd" type="text" 
                             class="mt-1 block w-full" :value="old('qtd', $pagamento->qtd)" required autofocus autocomplete="title" />
                             <x-input-error class="mt-2" :messages="$errors->get('qtd')" />
@@ -38,7 +38,7 @@
 
 
                         <div>
-                            <x-input-label for="valor" :value="__('Title')" />
+                            <x-input-label for="valor" :value="__('Valor')" />
                             <x-text-input id="valor" name="valor" type="text" 
                             class="mt-1 block w-full" :value="old('valor', $pagamento->valor)" required autofocus autocomplete="title" />
                             <x-input-error class="mt-2" :messages="$errors->get('valor')" />
@@ -46,26 +46,42 @@
 
 
                         <div>
-                            <x-input-label for="datavenc" :value="__('Title')" />
+                            <x-input-label for="datavenc" :value="__('Datavenc')" />
                             <x-text-input id="datavenc" name="datavenc" type="text" 
-                            class="mt-1 block w-full" :value="old('datavenc', $pagamento->datavenc)" required autofocus autocomplete="title" />
+                            class="mt-1 block w-full" :value="old('datavenc', $pagamento->showDateVenc())" required autofocus autocomplete="title" />
                             <x-input-error class="mt-2" :messages="$errors->get('datavenc')" />
                         </div>
 
                         <div>
-                            <x-input-label for="datapag" :value="__('Title')" />
+                            <x-input-label for="datapag" :value="__('Datapag')" />
                             <x-text-input id="datapag" name="datapag" type="text" 
-                            class="mt-1 block w-full" :value="old('datapag', $pagamento->datapag)" required autofocus autocomplete="title" />
+                            class="mt-1 block w-full" :value="old('datapag', $pagamento->showDatePag())" required autofocus autocomplete="title" />
                             <x-input-error class="mt-2" :messages="$errors->get('datapag')" />
                         </div>
 
                         <div>
-                            <x-input-label for="obs" :value="__('Title')" />
+                            <x-input-label for="obs" :value="__('Obs')" />
                             <x-text-input id="obs" name="obs" type="text" 
                             class="mt-1 block w-full" :value="old('obs', $pagamento->obs)" required autofocus autocomplete="title" />
                             <x-input-error class="mt-2" :messages="$errors->get('obs')" />
-                        </div>
+                            </div>
 
+                        <div>
+                        <x-input-label for="situacao" :value="__('Situacao')" />
+                        <select 
+                            class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm" 
+                            name="situacao" id="situacao">
+                            @foreach ($pagamento->getSituacoes() as $situacao)
+                                <option value="{{ $situacao }}" 
+                                  @if (old('situcao', $pagamento->situacao) == $situacao) 
+                                    {{ 'selected=selected' }} 
+                                    @endif
+                                >
+                                    {{ $situacao }} 
+                                </option>
+                            @endforeach
+                        </select>
+                        </div>
 
                         <button type="submit" class="btn mt-3 btn-primary">Update pagamento</button>
                       </form>
