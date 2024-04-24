@@ -23,3 +23,4 @@ Homestead.json
 .phpunit.result.cache
 /data
 www/my_project.zip
+www/phpMyAdmin

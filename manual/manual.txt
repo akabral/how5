@@ -14,7 +14,15 @@ https://kinsta.com/blog/laravel-crud/
 https://www.digitalocean.com/community/tutorials/simple-laravel-crud-with-resource-controllers
 
 
+https://laravel.com/docs/11.x/eloquent
 https://laravel.com/docs/5.5/eloquent-mutators
+https://raviyatechnical.medium.com/laravel-advance-how-to-change-date-format-in-laravel-2f03ca178fdc
+https://laravel.com/docs/10.x/blade#additional-attributes
+https://laracasts.com/discuss/channels/laravel/old-value-in-select-option?page=1&replyId=613126
+https://stackoverflow.com/questions/29148274/define-the-selected-option-with-the-old-input-in-laravel-blade
+https://laravel.com/docs/11.x/prompts#select
+
+
 
 php artisan migrate
 
