@@ -7,6 +7,7 @@ use App\Http\Controllers\FotoController;
 use App\Http\Controllers\DepoimentoController;
 use App\Http\Controllers\PagamentoController;
 use App\Http\Controllers\RecebimentoController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,12 +34,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
  
+Route::get('/galeria', HomeController::class .'@galeria')->name('home.galeria');
+Route::get('/testemunhos', HomeController::class .'@testemunho')->name('home.testemunho');
+
 //Route::resource('photos', PhotoController::class);
 //Route::post('/photos', PhotoController::class .'@store')->name('photos.store');
 
 Route::middleware('auth')->group(function () {
-        Route::get('/photos', PhotoController::class .'@index')->name('photos.index');
-        // returns the form for adding a photo
+    Route::get('/photos', PhotoController::class .'@index')->name('photos.index');
+    // returns the form for adding a photo
         Route::get('/photos/create', PhotoController::class . '@create')->name('photos.create');
         // adds a photo to the database
         Route::post('/photos', PhotoController::class .'@store')->name('photos.store');
