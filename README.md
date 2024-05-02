@@ -13,7 +13,7 @@ Frontend: JavaScript/Html/Css
 
 Backend: PHP/Laravel
 
-Banco de Dados: PostgreSQL
+Banco de Dados: MySQL
 
 Ferramenta de Prototipagem: Figma
 

@@ -10,7 +10,7 @@ mv /composer/composer.phar /usr/local/bin/composer
 #sudo mv composer.phar /usr/local/bin/composer
 
 
-chmod -R 2777 /var/www/html/
+chmod -R 2777 /var/www/html/how5
 
 sed -i "s/Listen 80/Listen ${PORT:-80}/g" /etc/apache2/ports.conf
 sed -i "s/:80/:${PORT:-80}/g" /etc/apache2/sites-enabled/*

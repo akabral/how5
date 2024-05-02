@@ -30,7 +30,7 @@ php artisan tinker
 use App\Models\User;
 User::create(['name' => 'Admin', 'email' => 'admin@example.org', 'password' => bcrypt('secret')]);
 
-
+php artisan make:migration create_flights_table
 
 php artisan make:migration
 https://laravel.com/docs/4.2/schema
