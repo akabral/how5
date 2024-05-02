@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\FotoController;
+use App\Http\Controllers\DepoimentoController;
 use App\Http\Controllers\PagamentoController;
 use App\Http\Controllers\RecebimentoController;
 
@@ -85,5 +87,41 @@ Route::middleware('auth')->group(function () {
 });
 
 
+
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/depoimentos', DepoimentoController::class .'@index')->name('depoimentos.index');
+    // returns the form for adding a depoimento
+    Route::get('/depoimentos/create', DepoimentoController::class . '@create')->name('depoimentos.create');
+    // adds a depoimento to the database
+    Route::post('/depoimentos', DepoimentoController::class .'@store')->name('depoimentos.store');
+    // returns a page that shows a full depoimento
+    Route::get('/depoimentos/{depoimento}', DepoimentoController::class .'@show')->name('depoimentos.show');
+    // returns the form for editing a depoimento
+    Route::get('/depoimentos/{depoimento}/edit', DepoimentoController::class .'@edit')->name('depoimentos.edit');
+    // updates a depoimento
+    Route::put('/depoimentos/{depoimento}', DepoimentoController::class .'@update')->name('depoimentos.update');
+    // deletes a depoimento
+    Route::delete('/depoimentos/{depoimento}', DepoimentoController::class .'@destroy')->name('depoimentos.destroy');
+});
+
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/fotos', FotoController::class .'@index')->name('fotos.index');
+    // returns the form for adding a foto
+    Route::get('/fotos/create', FotoController::class . '@create')->name('fotos.create');
+    // adds a foto to the database
+    Route::post('/fotos', FotoController::class .'@store')->name('fotos.store');
+    // returns a page that shows a full foto
+    Route::get('/fotos/{foto}', FotoController::class .'@show')->name('fotos.show');
+    // returns the form for editing a foto
+    Route::get('/fotos/{foto}/edit', FotoController::class .'@edit')->name('fotos.edit');
+    // updates a foto
+    Route::put('/fotos/{foto}', FotoController::class .'@update')->name('fotos.update');
+    // deletes a foto
+    Route::delete('/fotos/{foto}', FotoController::class .'@destroy')->name('fotos.destroy');
+});
 
 require __DIR__.'/auth.php';

@@ -21,7 +21,7 @@
                       shadow-2xl shadow-gray-500/20 dark:shadow-none
                       font-semibold"
             style="padding: 5px; background-color: #484d53;"
-            href={{ route('pagamentos.create') }}>Novo Pagamento</a>
+            href={{ route('pagamentos.create') }}>Novo Recebimento</a>
 
 
         </div>
@@ -57,14 +57,14 @@
                           <div class="flex space-x-4 ...">
                             <div class="flex-1 ...">Item</div>
                             <div class="flex-1 ...">Valor</div>
-                            <div class="flex-1 ...">Data Pagamento</div>
+                            <div class="flex-1 ...">Data Recebimento</div>
                             <div class="flex-1 ...">Data Vencimento</div>
                             <div class="flex-1 ...">Situacao</div>
                             <div class="flex-1 ...">Acoes</div>
                           </div>
                         </span>
 
-                      @foreach ($pagamentos as $pagamento)
+                      @foreach ($recebimentos as $pagamento)
                       <span class="block dark:bg-gray-700/50
                       dark:hover:bg-gray-700
                       via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5
@@ -78,16 +78,16 @@
                               <div class="flex-1 ">{{ $pagamento->showDateVenc() }}</div>
                               <div class="flex-1 ">{{ $pagamento->situacao }}</div>
                               <div class="flex-1 ">
-                                  <a href="{{ route('pagamentos.edit', $pagamento->id) }}" 
+                                  <a 
                                   class="dark:bg-gray-700/50 dark:hover:bg-gray-800"
-                                        style= " padding-left: 5px; padding-right: 10px;
-                                          padding-bottom: 3px; padding-top: 3px;"
-                                    >Editar</a>
+                                   style= " padding-left: 5px; padding-right: 10px;
+                                    padding-bottom: 3px; padding-top: 3px;"
+                                  href="{{ route('pagamentos.edit', $pagamento->id) }}">Editar</a>
                                     <form action="{{ route('pagamentos.destroy', $pagamento->id) }}" method="post">
                                       @csrf
                                       @method('DELETE')
                                       <button type="submit"
-                                        class="dark:bg-yellow-500/10 hover:bg-yellow"
+                                        class="dark:bg-gray-700/50 dark:hover:bg-gray-800"
                                         style= " padding-left: 5px; padding-right: 10px;
                                           padding-bottom: 3px; padding-top: 3px;"
                                         >Apagar</button>

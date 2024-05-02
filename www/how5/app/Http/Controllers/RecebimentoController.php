@@ -6,6 +6,9 @@ use App\Http\Requests\StorePhotoRequest;
 use App\Http\Requests\UpdatePhotoRequest;
 use App\Models\Recebimento;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
+
 
 class RecebimentoController extends Controller
 {
@@ -27,7 +30,8 @@ class RecebimentoController extends Controller
      */
     public function create()
     {
-        return view('recebimentos.create');
+        $recebimento = new Recebimento;
+        return view('recebimentos.create', compact('recebimento'));
     }
 
 
@@ -39,11 +43,22 @@ class RecebimentoController extends Controller
      */
         public function store(Request $request)
         {
+            /*
         $request->validate([
             'title' => 'required|max:255',
             'body' => 'required',
         ]);
-        Recebimento::create($request->all());
+        */
+        $recebimento = new Recebimento;
+        $recebimento->itemdesc =   $request->itemdesc;
+        $recebimento->qtd =   $request->qtd;
+        $recebimento->obs =   $request->obs;
+        $recebimento->valor =   $request->valor;
+        $recebimento->situacao =   $request->situacao;
+        $recebimento->datapag =  \Carbon\Carbon::createFromFormat('d/m/Y', $request->datapag)->format('Y-m-d h:i:s');
+        $recebimento->datavenc= \Carbon\Carbon::createFromFormat('d/m/Y', $request->datavenc)->format('Y-m-d h:i:s');
+        $recebimento->save();
+        //Recebimento::create($request->all());
         return redirect()->route('recebimentos.index')
             ->with('success', 'Recebimento created successfully.');
         }
@@ -71,12 +86,28 @@ class RecebimentoController extends Controller
      */
     public function update(Request $request, $id)
     {
+       /*
+       $params = $request->all();
+        $params->datavenc= \Carbon\Carbon::createFromFormat('d/m/Y', $request->datavenc)->format('Y-m-d h:i:s');
+        $params->datapag =  \Carbon\Carbon::createFromFormat('d/m/Y', $request->datapag)->format('Y-m-d h:i:s');
+ 
+        
         $request->validate([
         'title' => 'required|max:255',
         'body' => 'required',
         ]);
+        */
         $recebimento = Recebimento::find($id);
-        $recebimento->update($request->all());
+        $recebimento->itemdesc =   $request->itemdesc;
+        $recebimento->qtd =   $request->qtd;
+        $recebimento->obs =   $request->obs;
+        $recebimento->valor =   $request->valor;
+        $recebimento->situacao =   $request->situacao;
+        $recebimento->datapag =  \Carbon\Carbon::createFromFormat('d/m/Y', $request->datapag)->format('Y-m-d h:i:s');
+        $recebimento->datavenc= \Carbon\Carbon::createFromFormat('d/m/Y', $request->datavenc)->format('Y-m-d h:i:s');
+
+        $recebimento->save();
+        //$recebimento->update($params);
         return redirect()->route('recebimentos.index')
         ->with('success', 'Recebimento updated successfully.');
     }

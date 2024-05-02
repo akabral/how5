@@ -9,7 +9,7 @@
       <div class="flex flex-row space-x-4">
         <div class="flex-1 basis-1/4">
           <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-              {{ __('Contas a Pagar') }}
+              {{ __('Fotos') }}
           </h2>
         </div>
         <div class="flex-1 -1/4"></div>
@@ -21,7 +21,7 @@
                       shadow-2xl shadow-gray-500/20 dark:shadow-none
                       font-semibold"
             style="padding: 5px; background-color: #484d53;"
-            href={{ route('pagamentos.create') }}>Novo Pagamento</a>
+            href={{ route('fotos.create') }}>Novo Foto</a>
 
 
         </div>
@@ -55,16 +55,15 @@
                       font-semibold
                       ">
                           <div class="flex space-x-4 ...">
-                            <div class="flex-1 ...">Item</div>
-                            <div class="flex-1 ...">Valor</div>
-                            <div class="flex-1 ...">Data Pagamento</div>
-                            <div class="flex-1 ...">Data Vencimento</div>
-                            <div class="flex-1 ...">Situacao</div>
+                          <div class="flex-1 ...">mini</div>
+                          <div class="flex-1 ...">Album</div>
+                            <div class="flex-1 ...">Descricao</div>
+                            <div class="flex-1 ...">File</div>
                             <div class="flex-1 ...">Acoes</div>
                           </div>
                         </span>
 
-                      @foreach ($pagamentos as $pagamento)
+                      @foreach ($fotos as $foto)
                       <span class="block dark:bg-gray-700/50
                       dark:hover:bg-gray-700
                       via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5
@@ -72,22 +71,29 @@
                       motion-safe:hover:scale-[1.0] transition-all duration-250 
                       focus:outline focus:outline-2 focus:outline-red-500">
                         <div class="flex space-x-4.">
-                              <div class="flex-1 ">{{ $pagamento->itemdesc }}</div>
-                              <div class="flex-1 ">{{ $pagamento->valor }}</div>
-                              <div class="flex-1 ">{{ $pagamento->showDatePag() }}</div>
-                              <div class="flex-1 ">{{ $pagamento->showDateVenc() }}</div>
-                              <div class="flex-1 ">{{ $pagamento->situacao }}</div>
                               <div class="flex-1 ">
-                                  <a href="{{ route('pagamentos.edit', $pagamento->id) }}" 
+                                <img
+                                  src="uploads/{{ $foto->filename }}"
+                                  alt="MDN logo" />
+                              </div>
+                              <div class="flex-1 ">
+                                <span class="inline-block align-middle">
+                                  {{ $foto->album }}
+                                </span>  
+                              </div>
+                              <div class="flex-1 ">{{ $foto->descricao }}</div>
+                              <div class="flex-1 ">{{ $foto->filename }}</div>
+                              <div class="flex-1 ">
+                                  <a 
                                   class="dark:bg-gray-700/50 dark:hover:bg-gray-800"
-                                        style= " padding-left: 5px; padding-right: 10px;
-                                          padding-bottom: 3px; padding-top: 3px;"
-                                    >Editar</a>
-                                    <form action="{{ route('pagamentos.destroy', $pagamento->id) }}" method="post">
+                                   style= " padding-left: 5px; padding-right: 10px;
+                                    padding-bottom: 3px; padding-top: 3px;"
+                                  href="{{ route('fotos.edit', $foto->id) }}">Editar</a>
+                                    <form action="{{ route('fotos.destroy', $foto->id) }}" method="post">
                                       @csrf
                                       @method('DELETE')
                                       <button type="submit"
-                                        class="dark:bg-yellow-500/10 hover:bg-yellow"
+                                        class="dark:bg-gray-700/50 dark:hover:bg-gray-800"
                                         style= " padding-left: 5px; padding-right: 10px;
                                           padding-bottom: 3px; padding-top: 3px;"
                                         >Apagar</button>
