@@ -102,7 +102,7 @@ class FotoController extends Controller
         */
         
         $request->validate([
-            'file' => 'required|mimes:jpg,png,jpeg|max:16048',
+            'file' => 'required|mimes:jpg,png,jpeg,avif|max:16048',
         ]);
     
         

@@ -1,5 +1,5 @@
 
-<x-app-layout>
+<x-guest-layout>
     <x-slot name="header">
 
 
@@ -58,7 +58,6 @@
                           <div class="flex-1 ...">mini</div>
                           <div class="flex-1 ...">Album</div>
                             <div class="flex-1 ...">Descricao</div>
-                            <div class="flex-1 ...">Acoes</div>
                           </div>
                         </span>
 
@@ -81,22 +80,7 @@
                                 </span>  
                               </div>
                               <div class="flex-1 ">{{ $foto->descricao }}</div>
-                              <div class="flex-1 ">
-                                  <a 
-                                  class="dark:bg-gray-700/50 dark:hover:bg-gray-800"
-                                   style= " padding-left: 5px; padding-right: 10px;
-                                    padding-bottom: 3px; padding-top: 3px;"
-                                  href="{{ route('fotos.edit', $foto->id) }}">Editar</a>
-                                    <form action="{{ route('fotos.destroy', $foto->id) }}" method="post">
-                                      @csrf
-                                      @method('DELETE')
-                                      <button type="submit"
-                                        class="dark:bg-gray-700/50 dark:hover:bg-gray-800"
-                                        style= " padding-left: 5px; padding-right: 10px;
-                                          padding-bottom: 3px; padding-top: 3px;"
-                                        >Apagar</button>
-                                    </form>
-                            </div>
+                             
                         </div>
                       </span>
 
