@@ -9,7 +9,7 @@
       <div class="flex flex-row space-x-4">
         <div class="flex-1 basis-1/4">
           <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-              {{ __('Contas a Pagar') }}
+              {{ __('Depoimentos') }}
           </h2>
         </div>
         <div class="flex-1 -1/4"></div>

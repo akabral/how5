@@ -9,7 +9,7 @@
       <div class="flex flex-row space-x-4">
         <div class="flex-1 basis-1/4">
           <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-              {{ __('Contas a Pagar') }}
+              {{ __('Contas a Receber') }}
           </h2>
         </div>
         <div class="flex-1 -1/4"></div>
@@ -21,7 +21,7 @@
                       shadow-2xl shadow-gray-500/20 dark:shadow-none
                       font-semibold"
             style="padding: 5px; background-color: #484d53;"
-            href={{ route('pagamentos.create') }}>Novo Recebimento</a>
+            href={{ route('recebimentos.create') }}>Novo Recebimento</a>
 
 
         </div>
@@ -64,7 +64,7 @@
                           </div>
                         </span>
 
-                      @foreach ($recebimentos as $pagamento)
+                      @foreach ($recebimentos as $recebimento)
                       <span class="block dark:bg-gray-700/50
                       dark:hover:bg-gray-700
                       via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5
@@ -72,18 +72,18 @@
                       motion-safe:hover:scale-[1.0] transition-all duration-250 
                       focus:outline focus:outline-2 focus:outline-red-500">
                         <div class="flex space-x-4.">
-                              <div class="flex-1 ">{{ $pagamento->itemdesc }}</div>
-                              <div class="flex-1 ">{{ $pagamento->valor }}</div>
-                              <div class="flex-1 ">{{ $pagamento->showDatePag() }}</div>
-                              <div class="flex-1 ">{{ $pagamento->showDateVenc() }}</div>
-                              <div class="flex-1 ">{{ $pagamento->situacao }}</div>
+                              <div class="flex-1 ">{{ $recebimento->itemdesc }}</div>
+                              <div class="flex-1 ">{{ $recebimento->valor }}</div>
+                              <div class="flex-1 ">{{ $recebimento->showDatePag() }}</div>
+                              <div class="flex-1 ">{{ $recebimento->showDateVenc() }}</div>
+                              <div class="flex-1 ">{{ $recebimento->situacao }}</div>
                               <div class="flex-1 ">
                                   <a 
                                   class="dark:bg-gray-700/50 dark:hover:bg-gray-800"
                                    style= " padding-left: 5px; padding-right: 10px;
                                     padding-bottom: 3px; padding-top: 3px;"
-                                  href="{{ route('pagamentos.edit', $pagamento->id) }}">Editar</a>
-                                    <form action="{{ route('pagamentos.destroy', $pagamento->id) }}" method="post">
+                                  href="{{ route('recebimentos.edit', $recebimento->id) }}">Editar</a>
+                                    <form action="{{ route('recebimentos.destroy', $recebimento->id) }}" method="post">
                                       @csrf
                                       @method('DELETE')
                                       <button type="submit"

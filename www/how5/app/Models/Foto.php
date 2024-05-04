@@ -22,18 +22,4 @@ class Foto extends Model
         'filename'
       ];
 
-
-
-/**
- * Get the user's full name.
- *
- * @return string
- */
-public function getNotas()
-{
-    return [1,2,3,4,5];
-}
-    
-
-
 }

@@ -4,9 +4,10 @@ Este repositório contém o código-fonte de um aplicativo de gestão financeira
 
 # Funcionalidades Principais:
 
-Registro de despesas e receitas
-Geração de relatórios financeiros
-Monitoramento do fluxo de caixa em tempo real
+Registro de receitas
+Registro de despesas 
+Galeria de Fotos
+Galeira Depoimentos
 
 # Tecnologias Utilizadas:
 Frontend: JavaScript/Html/Css
@@ -20,4 +21,4 @@ Ferramenta de Prototipagem: Figma
 
 # Evidências:
 As evidências relacionadas à ação, incluindo registro fotográfico e documentos de entrega parcial podem ser encontradas no link abaixo.
-https://github.com/akabral/how5/blob/main/Trabalho
+https://github.com/akabral/how5/blob/main/trabalho
